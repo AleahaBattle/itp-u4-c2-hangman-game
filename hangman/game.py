@@ -36,14 +36,14 @@ def _uncover_word(answer_word, masked_word, character):
     if len(answer_word) != len(masked_word):
         raise InvalidWordException('Those words are invalid.')
     
-    character = character.casefold()
-    answer_word = answer_word.casefold()
+    character = character.lower()
+    answer_word = answer_word.lower()
     unmasked_word = masked_word
     
     for idx, char in enumerate(answer_word):
         if character == char:
             unmasked_word = masked_word[:idx] + char + masked_word[idx+1:]
-            masked_word = unmasked_word.casefold()
+            masked_word = unmasked_word.lower()
             
     return masked_word
 
